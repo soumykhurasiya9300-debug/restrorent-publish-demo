@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+:root {
+  --emerald-950: #0a1a1a;
+  --emerald-900: #0f2424;
+  --emerald-800: #143030;
+  --emerald-700: #1e4040;
+  --emerald-600: #2a5555;
+  --gold: #d4a853;
+  --gold-light: #e8c87a;
+  --gold-dark: #b8860b;
+  --gold-pale: #f0e8d0;
+  --cream: #f5f0e8;
+  --cream-light: #faf7f2;
+  --cream-dark: #e0d8cc;
+  --text-light: #f5f0e8;
+  --text-muted: #a0a090;
+  --text-dark: #0a1a1a;
+  --glass-bg: rgba(10, 26, 26, 0.85);
+  --glass-border: rgba(212, 168, 83, 0.2);
+  --glass-gold: rgba(212, 168, 83, 0.06);
+  --shadow-lg: 0 30px 60px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 15px 35px rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --shadow-gold: 0 15px 40px rgba(212, 168, 83, 0.12);
+  --radius-lg: 20px;
+  --radius-md: 12px;
+  --radius-sm: 6px;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-accent: 'Jost', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #0a1a1a;
+  color: #f5f0e8;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--emerald-950);
+  color: var(--text-light);
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+
+/* Subtle luxury grain */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9997;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.025'/%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a1a1a;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a5555;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4a853;
+}
+
+/* Shimmer Animation */
+@keyframes opalShimmer {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.35);
+  }
+}
+
+.animate-opal-shimmer {
+  background: linear-gradient(135deg, #e8c87a 0%, #d4a853 25%, #f0e8d0 45%, #d4a853 70%, #b8860b 85%, #d4a853 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  animation: opalShimmer 5s ease-in-out infinite;
+}
+
+/* Marquee scroll */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Preloader pulse */
+@keyframes preloaderPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.05);
+  }
+}
+
+.animate-preloader-pulse {
+  animation: preloaderPulse 1.8s ease-in-out infinite;
+}
+
+/* Badge pulse */
+@keyframes pulseBadge {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 30px 60px rgba(212, 168, 83, 0.35);
+  }
+}
+
+.animate-pulse-badge {
+  animation: pulseBadge 3.5s ease-in-out infinite;
+}
+
+/* Bounce pin */
+@keyframes bouncePin {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-bounce-pin {
+  animation: bouncePin 2s ease-in-out infinite;
+}
+
+/* Custom Scroll Line */
+@keyframes scrollLine {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 1;
+  }
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+    opacity: 1;
+  }
+  50.1% {
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+    opacity: 0;
+  }
+}
+
+.animate-scroll-line {
+  animation: scrollLine 2s ease-in-out infinite;
+}
+
+/* Font classes */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-accent {
+  font-family: var(--font-accent);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}

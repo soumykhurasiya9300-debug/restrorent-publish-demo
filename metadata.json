@@ -1,0 +1,6 @@
+{
+  "name": "The Opal Room — Fine Dining Restaurant",
+  "description": "Jabalpur's premier fine dining destination. Exquisite cuisine, cozy ambience, and warm hospitality at SR Tower, Napier Town.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
